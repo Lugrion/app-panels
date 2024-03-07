@@ -13,10 +13,9 @@ export default function Login() {
         try {
             const user_response = await axios.get('http://localhost:3000/users');
             const users = user_response.data;
-
-            // Comprueba
+    
+            // Comprueba si el usuario existe
             const existingUser = users.find(user => user.username === username);
-
             if (existingUser) {
                 console.log('Login successful:', existingUser);
                 alert("Login successful");
@@ -28,42 +27,38 @@ export default function Login() {
             console.error('Login failed:', error);
         }
     };
-
+    
     const handleSubmit_register = async (e) => {
         e.preventDefault();
         try {
             const user_response = await axios.get('http://localhost:3000/users');
             const users = user_response.data;
-
-            // Comprueba
+    
+            // Comprueba si el usuario ya está registrado
             const existingUser = users.find(user => user.username === username_register);
             if (!existingUser) {
-
+                // Si el usuario no está registrado, lo registra
                 const newUserResponse = await axios.post('http://localhost:3000/users', {
-                    username_register,
-                    password_register,
+                    username: username_register,
+                    password: password_register,
                 });
-
-
-
                 console.log('User registered:', newUserResponse.data);
                 alert("Register successful");
             } else {
                 console.error('User already registered');
                 alert("User already registered");
             }
-
         } catch (registerError) {
             console.error('Registration failed:', registerError);
         }
     };
+    
 
 
     return (
         <>
-            <div>Login</div>
-            <div className="wrapper">
-                <form onSubmit={handleSubmit_login}>
+            <h2 className="p-4">Login</h2>
+                <form onSubmit={handleSubmit_login} className="p-2 m-2">
                     <div className="form-group">
                         <label htmlFor="form_login_name">Name</label>
                         <input
@@ -84,14 +79,12 @@ export default function Login() {
                             placeholder="Password"
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
+                    <button type="submit" className="btn btn-primary m-2">Login</button>
                 </form>
-            </div>
 
 
-            <div>Register</div>
-            <div className="wrapper">
-                <form onSubmit={handleSubmit_register}>
+            <h2 className="p-4">Register</h2>
+                <form onSubmit={handleSubmit_register} className="m-2 p-2">
                     <div className="form-group">
                         <label htmlFor="form_register_name">Name</label>
                         <input
@@ -112,9 +105,8 @@ export default function Login() {
                             placeholder="Password"
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Register</button>
+                    <button type="submit" className="btn btn-primary m-2">Register</button>
                 </form>
-            </div>
 
 
 

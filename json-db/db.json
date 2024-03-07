@@ -1,5 +1,9 @@
 {
   "users": [
-   
+    {
+      "id": "beef",
+      "username": "xD",
+      "password": "XD"
+    }
   ]
 }
