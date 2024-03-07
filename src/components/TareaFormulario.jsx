@@ -29,12 +29,12 @@ function TareaFormulario(props) {
       <input 
         className='tarea-input'
         type='text'
-        placeholder='Escribe una Tarea'
+        placeholder='Write your task'
         name='texto'
         onChange={manejarCambio}
       />
       <button className='tarea-boton'>
-        Agregar Tarea
+        Add Tasks
       </button>
     </form>
   );

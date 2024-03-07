@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export default function Login() {
+const Login = () => {
 
+    
+    
+    
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [username_register, setUsername_register] = useState('');
     const [password_register, setPassword_register] = useState('');
+    const [loggedInUser, setLoggedInUser] = useState(null);
+    const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
     const handleSubmit_login = async (e) => {
         e.preventDefault();
@@ -18,40 +24,46 @@ export default function Login() {
             const existingUser = users.find(user => user.username === username);
             if (existingUser) {
                 console.log('Login successful:', existingUser);
+                setLoggedInUser(existingUser);
                 alert("Login successful");
+                navigate('/');
             } else {
-                console.error('User not found');
-                alert("User not found");
+                console.error('Invalid username or password');
+                alert("Invalid username or password");
             }
         } catch (error) {
             console.error('Login failed:', error);
+            alert("Login failed. Please try again later.");
         }
     };
     
     const handleSubmit_register = async (e) => {
         e.preventDefault();
         try {
+            // Check if the username is already taken
             const user_response = await axios.get('http://localhost:3000/users');
             const users = user_response.data;
-    
-            // Comprueba si el usuario ya está registrado
             const existingUser = users.find(user => user.username === username_register);
-            if (!existingUser) {
-                // Si el usuario no está registrado, lo registra
-                const newUserResponse = await axios.post('http://localhost:3000/users', {
-                    username: username_register,
-                    password: password_register,
-                });
-                console.log('User registered:', newUserResponse.data);
-                alert("Register successful");
-            } else {
+            if (existingUser) {
                 console.error('User already registered');
                 alert("User already registered");
+                return; // Exit early if user already exists
             }
-        } catch (registerError) {
-            console.error('Registration failed:', registerError);
+    
+            // Register the new user
+            const newUserResponse = await axios.post('http://localhost:3000/users', {
+                username: username_register,
+                password: password_register,
+                tasks: {} // Initialize tasks as an empty object
+            });
+            console.log('User registered:', newUserResponse.data);
+            alert("Register successful");
+        } catch (error) {
+            console.error('Registration failed:', error);
+            alert("Registration failed. Please try again later.");
         }
     };
+    
     
 
 
@@ -114,3 +126,4 @@ export default function Login() {
     )
 }
 
+export default Login;

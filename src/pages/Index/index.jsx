@@ -18,7 +18,7 @@ export default function Home() {
 
             <div className='aplicacion-tareas'>
                 <div className='tareas-lista-principal'>
-                    <h1>Mis Tareas</h1>
+                    <h1>Pending Tasks</h1>
                     <ListaDeTareas />
                 </div>
             </div>

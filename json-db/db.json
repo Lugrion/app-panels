@@ -1,9 +1,16 @@
 {
   "users": [
     {
-      "id": "beef",
+      "id": "83e2",
+      "username": "LOL",
+      "password": "LOL",
+      "tasks": {}
+    },
+    {
+      "id": "9cc3",
       "username": "xD",
-      "password": "XD"
+      "password": "xD",
+      "tasks": {}
     }
   ]
 }
