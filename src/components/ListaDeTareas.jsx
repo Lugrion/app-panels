@@ -7,17 +7,12 @@ function ListaDeTareas() {
   const [tareas, setTareas] = useState([]);
   const userString = localStorage.getItem("user");
   const userId = userString ? JSON.parse(userString).id : null;
-  console.log(userId)
-  
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const userString = localStorage.getItem("user");
-      if (userString) {
-        const userId = JSON.parse(userString).id;
+      if (userId) {
         try {
-          const response = await axios.get(`http://localhost:3000/tasks?userId=${userId}`);
+          const response = await axios.get(`http://localhost:3000/tasks?user_id=${userId}`);
           setTareas(response.data);
         } catch (error) {
           console.error('Failed to fetch tasks:', error);
@@ -26,39 +21,50 @@ function ListaDeTareas() {
     };
 
     fetchTasks();
-  }, []);
+  }, [userId]); // Fetch tasks whenever userId changes
 
-  useEffect(() => {
-    // Save tasks to local storage whenever they change
-    localStorage.setItem('tasks', JSON.stringify(tareas));
-  }, [tareas]);
-
-  const agregarTarea = tarea => {
-    setTareas(prevTareas => [tarea, ...prevTareas]);
+  const agregarTarea = async tarea => {
+    if (userId) {
+      try {
+        const response = await axios.post('http://localhost:3000/tasks', {
+          ...tarea,
+          user_id: userId
+        });
+        setTareas(prevTareas => [...prevTareas, response.data]);
+        // alert('Task added successfully!');
+      } catch (error) {
+        console.error('Failed to add task:', error);
+        alert('Failed to add task. Please try again later.');
+      }
+    }
   };
 
   const eliminarTarea = async id => {
-    try {
-      await axios.delete(`http://localhost:3000/tasks/${id}`);
-      setTareas(prevTareas => prevTareas.filter(tarea => tarea.id !== id));
-      alert('Task deleted successfully!');
-    } catch (error) {
-      console.error('Failed to delete task:', error);
-      alert('Failed to delete task. Please try again later.');
+    if (userId) {
+      try {
+        await axios.delete(`http://localhost:3000/tasks/${id}`);
+        setTareas(prevTareas => prevTareas.filter(tarea => tarea.id !== id));
+        // alert('Task deleted successfully!');
+      } catch (error) {
+        console.error('Failed to delete task:', error);
+        alert('Failed to delete task. Please try again later.');
+      }
     }
   };
 
   const completarTarea = async id => {
-    const tarea = tareas.find(tarea => tarea.id === id);
-    try {
-      await axios.patch(`http://localhost:3000/tasks/${id}`, { completada: !tarea.completada });
-      setTareas(prevTareas =>
-        prevTareas.map(t => (t.id === id ? { ...t, completada: !t.completada } : t))
-      );
-      alert('Task updated successfully!');
-    } catch (error) {
-      console.error('Failed to update task:', error);
-      alert('Failed to update task. Please try again later.');
+    if (userId) {
+      const tarea = tareas.find(tarea => tarea.id === id);
+      try {
+        await axios.patch(`http://localhost:3000/tasks/${id}`, { completada: !tarea.completada });
+        setTareas(prevTareas =>
+          prevTareas.map(t => (t.id === id ? { ...t, completada: !t.completada } : t))
+        );
+        // alert('Task updated successfully!');
+      } catch (error) {
+        console.error('Failed to update task:', error);
+        alert('Failed to update task. Please try again later.');
+      }
     }
   };
 

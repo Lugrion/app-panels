@@ -19,49 +19,48 @@
       "id": "2a67",
       "username": "C",
       "password": "C"
+    },
+    {
+      "id": "b7c8",
+      "username": "Alvaro",
+      "password": "Alvaro"
+    },
+    {
+      "id": "3b4f",
+      "username": "Buenas",
+      "password": "Buenas"
     }
   ],
   "tasks": [
     {
-      "id": "4a3a1460-df65-42b0-a22a-760eff79bd9a",
-      "texto": "hola",
+      "id": "751265c8-0f3f-40ef-aa4d-3618092360a5",
+      "texto": "Tareas de Alvaro",
       "completada": false,
-      "user_id": "9cc3"
+      "user_id": "b7c8"
     },
     {
-      "id": "c42c86cd-f14e-45b5-91ea-9c0a3b747dfe",
-      "texto": "xD",
-      "completada": true,
-      "user_id": "9cc3"
-    },
-    {
-      "id": "0fca212a-9aa0-4ac0-939b-6a1deb81b02d",
-      "texto": "",
-      "completada": false,
-      "user_id": "9cc3"
-    },
-    {
-      "id": "b9a3df7d-63c9-4508-a7b2-445acbed79fd",
-      "texto": "xD",
-      "completada": true,
-      "user_id": "9cc3"
-    },
-    {
-      "id": "8c1abcd8-5ddb-4e31-b2cf-3d6be2fbef36",
+      "id": "20d3b1e1-602d-491f-a95e-ecae69b18685",
       "texto": "xD",
       "completada": false,
       "user_id": "9cc3"
     },
     {
-      "id": "ce6ac359-c8ae-4a00-b0d2-f60306abee97",
-      "texto": "xD",
+      "id": "0db22be9-7d95-43e2-b28a-38e834542d30",
+      "texto": "bUENAS",
       "completada": false,
-      "user_id": "9cc3"
+      "user_id": "3b4f"
     },
     {
-      "id": "db17e92a-bd3b-49ce-a70b-e47aa199c89b",
-      "texto": "xD",
-      "completada": false
+      "id": "59472081-9ade-417e-9e86-65b87c359e6c",
+      "texto": "bUENAS",
+      "completada": false,
+      "user_id": "3b4f"
+    },
+    {
+      "id": "da491058-aa9b-4ea5-9ba7-96094237ec70",
+      "texto": "bUENAS",
+      "completada": false,
+      "user_id": "3b4f"
     }
   ]
 }
