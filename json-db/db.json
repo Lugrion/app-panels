@@ -3,14 +3,34 @@
     {
       "id": "83e2",
       "username": "LOL",
-      "password": "LOL",
-      "tasks": {}
+      "password": "LOL"
     },
     {
       "id": "9cc3",
       "username": "xD",
-      "password": "xD",
-      "tasks": {}
+      "password": "xD"
+    },
+    {
+      "id": "db87",
+      "username": "XD",
+      "password": "XD"
+    },
+    {
+      "id": "2a67",
+      "username": "C",
+      "password": "C"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "content": "Termina esto ya",
+      "userId": "83e2"
+    },
+    {
+      "id": 2,
+      "content": "Termina esto ya",
+      "userId": "83e2"
     }
   ]
 }
