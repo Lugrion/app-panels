@@ -23,14 +23,40 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "content": "Termina esto ya",
-      "userId": "83e2"
+      "id": "4a3a1460-df65-42b0-a22a-760eff79bd9a",
+      "texto": "hola",
+      "completada": false,
+      "user_id": "9cc3"
     },
     {
-      "id": 2,
-      "content": "Termina esto ya",
-      "userId": "83e2"
+      "id": "c42c86cd-f14e-45b5-91ea-9c0a3b747dfe",
+      "texto": "xD",
+      "completada": true,
+      "user_id": "9cc3"
+    },
+    {
+      "id": "0fca212a-9aa0-4ac0-939b-6a1deb81b02d",
+      "texto": "",
+      "completada": false,
+      "user_id": "9cc3"
+    },
+    {
+      "id": "b9a3df7d-63c9-4508-a7b2-445acbed79fd",
+      "texto": "xD",
+      "completada": true,
+      "user_id": "9cc3"
+    },
+    {
+      "id": "8c1abcd8-5ddb-4e31-b2cf-3d6be2fbef36",
+      "texto": "xD",
+      "completada": false,
+      "user_id": "9cc3"
+    },
+    {
+      "id": "ce6ac359-c8ae-4a00-b0d2-f60306abee97",
+      "texto": "xD",
+      "completada": false,
+      "user_id": "9cc3"
     }
   ]
 }
