@@ -74,7 +74,7 @@ const Login = () => {
                         <div className="card-body">
                             <h2 className="text-center mb-4">Login</h2>
                             <form onSubmit={handleSubmit_login}>
-                                <div className="form-group">
+                                <div className="form-group p-2">
                                     <input
                                         type="text"
                                         value={username}
@@ -84,7 +84,7 @@ const Login = () => {
                                         required
                                     />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group p-2">
                                     <input
                                         type="password"
                                         value={password}
@@ -102,7 +102,7 @@ const Login = () => {
                         <div className="card-body">
                             <h2 className="text-center mb-4">Sign Up</h2>
                             <form onSubmit={handleSubmit_register}>
-                                <div className="form-group">
+                                <div className="form-group p-2">
                                     <input
                                         type="text"
                                         value={username_register}
@@ -112,7 +112,7 @@ const Login = () => {
                                         required
                                     />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group p-2">
                                     <input
                                         type="password"
                                         value={password_register}
